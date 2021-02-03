@@ -1,5 +1,6 @@
 package com.acc.au.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -9,7 +10,8 @@ public class Trainer {
 	private int trainer_id;
     private String trainer_name;
     private String trainer_email;
-    private String trainer_username;
+    @Column(name="trainer_username")
+    private String trainerusername;
     private String trainer_password;
 	public int getTrainer_id() {
 		return trainer_id;
@@ -29,11 +31,11 @@ public class Trainer {
 	public void setTrainer_email(String trainer_email) {
 		this.trainer_email = trainer_email;
 	}
-	public String getTrainer_username() {
-		return trainer_username;
+	public String getTrainerusername() {
+		return trainerusername;
 	}
-	public void setTrainer_username(String trainer_username) {
-		this.trainer_username = trainer_username;
+	public void setTrainerusername(String trainerusername) {
+		this.trainerusername = trainerusername;
 	}
 	public String getTrainer_password() {
 		return trainer_password;

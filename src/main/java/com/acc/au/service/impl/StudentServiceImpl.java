@@ -1,5 +1,7 @@
 package com.acc.au.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,11 @@ public class StudentServiceImpl implements StudentService{
 		return "success";
 	}
 
+	@Override
+	public Optional<Student> fetch(Integer id) {
+		// TODO Auto-generated method stub
+		return repo.findById(id);
+	}
+
+	
 }
