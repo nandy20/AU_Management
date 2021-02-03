@@ -16,14 +16,12 @@ public class BatchServiceImpl implements BatchService{
 	
 	@Override
 	public String save(Batch obj) {
-		
 		repo.save(obj);
 		return "sfdsdf";
 	}
 
 	@Override
 	public Optional<Batch> fetch(Integer id) {
-		// TODO Auto-generated method stub
 		return repo.findById(id);
 	}
 
