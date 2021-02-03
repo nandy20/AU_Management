@@ -12,7 +12,8 @@ public class Trainer {
     private String trainer_email;
     @Column(name="trainer_username")
     private String trainerusername;
-    private String trainer_password;
+    @Column(name="trainer_password")
+    private String trainerpassword;
 	public int getTrainer_id() {
 		return trainer_id;
 	}
@@ -37,11 +38,11 @@ public class Trainer {
 	public void setTrainerusername(String trainerusername) {
 		this.trainerusername = trainerusername;
 	}
-	public String getTrainer_password() {
-		return trainer_password;
+	public String getTrainerpassword() {
+		return trainerpassword;
 	}
-	public void setTrainer_password(String trainer_password) {
-		this.trainer_password = trainer_password;
+	public void setTrainerpassword(String trainerpassword) {
+		this.trainerpassword = trainerpassword;
 	}
     
 }

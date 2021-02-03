@@ -5,5 +5,5 @@ import java.util.Optional;
 import com.acc.au.model.Trainer;
 
 public interface LoginService {
-    Optional<Trainer> Auth(String trainerusername);
+    Trainer Auth(String trainerusername,String trainerpassword);
 }

@@ -18,9 +18,9 @@ public class LoginController {
 	@Autowired
 	LoginService service;
 	
-	@GetMapping("/{trainerusername}")
-	public Optional<Trainer> trainerlogin(@PathVariable String trainerusername) {
-		return service.Auth(trainerusername);
+	@GetMapping("/{trainerusername}/{trainerpassword}")
+	public Trainer trainerlogin(@PathVariable String trainerusername,@PathVariable String trainerpassword) {
+		return service.Auth(trainerusername,trainerpassword);
 		
 	}
 }

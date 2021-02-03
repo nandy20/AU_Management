@@ -2,6 +2,8 @@ package com.acc.au.service.impl;
 
 import java.util.Optional;
 
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +17,12 @@ public class LoginServiceImpl implements LoginService{
 	TrainerRepo repo;
 	
 	@Override
-	public Optional<Trainer> Auth(String trainerusername) {
+	public Trainer Auth(String trainerusername,String trainerpassword) {
 		
-	    Optional<Trainer> t = repo.findByTrainerusername(trainerusername);
-	    System.out.println(t.toString());
+	    Trainer t = repo.findByTrainerusername(trainerusername);
+	    System.out.println(t.getTrainerpassword());
+	    System.out.println(trainerpassword);
+	    Session s;
 		return t;
 		
 	}
