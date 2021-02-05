@@ -1,5 +1,6 @@
 package com.acc.au.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class TrainerController {
 	public Optional<Trainer> fetch(@PathVariable Integer id ) {
 		return service.fetch(id);
 		
+	}
+	
+	@GetMapping("/fetch")
+	public List<Trainer>fetchall(){
+		return service.fetchall();
 	}
 }

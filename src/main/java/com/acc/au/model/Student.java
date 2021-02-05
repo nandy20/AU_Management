@@ -1,5 +1,6 @@
 package com.acc.au.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -10,7 +11,8 @@ public class Student {
 	private String student_name;
 	private String student_email;
 	private String student_mobile;
-	private int batch_id;
+	@Column(name="batch_id")
+	private int batchid;
 	private String student_username;
 	private String student_password;
 	public int getStudent_id() {
@@ -37,11 +39,11 @@ public class Student {
 	public void setStudent_mobile(String student_mobile) {
 		this.student_mobile = student_mobile;
 	}
-	public int getBatch_id() {
-		return batch_id;
+	public int getBatchid() {
+		return batchid;
 	}
-	public void setBatch_id(int batch_id) {
-		this.batch_id = batch_id;
+	public void setBatchid(int batchid) {
+		this.batchid = batchid;
 	}
 	public String getStudent_username() {
 		return student_username;

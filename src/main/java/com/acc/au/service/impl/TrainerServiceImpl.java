@@ -1,7 +1,20 @@
 package com.acc.au.service.impl;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.Date;
+import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
+import org.quartz.JobBuilder;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SimpleScheduleBuilder;
+import org.quartz.Trigger;
+import org.quartz.TriggerBuilder;
+import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -20,23 +33,47 @@ public class TrainerServiceImpl implements TrainerService{
 	@Autowired
     private JavaMailSender emailSender;
 
+
 	@Override
 	public String save(Trainer obj) {
 		repo.save(obj);
-		SimpleMailMessage message = new SimpleMailMessage(); 
-        message.setFrom("nandhini17094@cse.ssn.edu.in");
-        message.setTo("nandysindhu2012@gmail.com"); 
-        message.setSubject("Welcome to AU!!!"); 
-        message.setText("You are added as trainer in AU2021");
-        emailSender.send(message);
+		try {
+		LocalDateTime local 
+        = LocalDateTime 
+              .parse("2021-02-04T17:43:00"); 
+		 ZonedDateTime dateTime = ZonedDateTime.of(local,ZoneId.systemDefault());
+            
+		JobDetail job1 = JobBuilder.newJob(EmailJob.class)
+				.withIdentity(UUID.randomUUID().toString(), "email-jobs").build();
+
+		Trigger trigger1 = TriggerBuilder.newTrigger()
+				.withIdentity(job1.getKey().getName(),"email-triggers")
+				  .startAt(Date.from(dateTime.toInstant()))
+				.withSchedule(SimpleScheduleBuilder.simpleSchedule().withMisfireHandlingInstructionFireNow())
+                .build();
+		
+		Scheduler scheduler1 = new StdSchedulerFactory().getScheduler();
+		scheduler1.start();
+		scheduler1.scheduleJob(job1, trigger1);
+		scheduler1.shutdown();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		return "success";
 	}
 	@Override
 	public Optional<Trainer> fetch(Integer id) {
-		// TODO Auto-generated method stub
+	
 		return repo.findById(id);
 	}
+	@Override
+	public List<Trainer> fetchall() {
+		
+		return repo.findAll();
+	}
 
+	
 	
 }

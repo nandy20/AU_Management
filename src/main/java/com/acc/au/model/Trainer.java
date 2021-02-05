@@ -10,10 +10,10 @@ public class Trainer {
 	private int trainer_id;
     private String trainer_name;
     private String trainer_email;
-    
-    private String trainer_username;
-    
-    private String trainer_password;
+    @Column(name="trainer_username")
+    private String trainerUsername;
+    @Column(name="trainer_password")
+    private String trainerPwd;
 	public int getTrainer_id() {
 		return trainer_id;
 	}
@@ -32,17 +32,17 @@ public class Trainer {
 	public void setTrainer_email(String trainer_email) {
 		this.trainer_email = trainer_email;
 	}
-	public String getTrainer_username() {
-		return trainer_username;
+	public String getTrainerUsername() {
+		return trainerUsername;
 	}
-	public void setTrainer_username(String trainer_username) {
-		this.trainer_username = trainer_username;
+	public void setTrainerUsername(String trainerUsername) {
+		this.trainerUsername = trainerUsername;
 	}
-	public String getTrainer_password() {
-		return trainer_password;
+	public String getTrainerPwd() {
+		return trainerPwd;
 	}
-	public void setTrainer_password(String trainer_password) {
-		this.trainer_password = trainer_password;
+	public void setTrainerPwd(String trainerPwd) {
+		this.trainerPwd = trainerPwd;
 	}
     
 }

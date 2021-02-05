@@ -12,6 +12,13 @@ public class Session {
     private String start_time;
     private String end_time;
     private String session_date;
+    private int batch_id;
+	public int getBatch_id() {
+		return batch_id;
+	}
+	public void setBatch_id(int batch_id) {
+		this.batch_id = batch_id;
+	}
 	public int getSession_id() {
 		return session_id;
 	}

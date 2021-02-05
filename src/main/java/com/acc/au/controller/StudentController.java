@@ -1,5 +1,6 @@
 package com.acc.au.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +30,14 @@ public class StudentController {
 		
 	}
 	
-
 	@GetMapping("/{id}")
 	public Optional<Student> fetch(@PathVariable Integer id ) {
 		return stuservice.fetch(id);
 		
+	}
+	
+	@GetMapping("/batch/{batch_id}")
+	public List<Student> FetchBasedOnBatch(@PathVariable("batch_id") Integer batchid){
+	    return stuservice.FetchBasedOnBatch(batchid);	
 	}
 }
