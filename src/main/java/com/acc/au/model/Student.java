@@ -13,8 +13,10 @@ public class Student {
 	private String student_mobile;
 	@Column(name="batch_id")
 	private int batchid;
-	private String student_username;
-	private String student_password;
+	@Column(name="student_username")
+	private String studentUsername;
+	@Column(name="student_password")
+	private String studentPwd;
 	public int getStudent_id() {
 		return student_id;
 	}
@@ -45,17 +47,18 @@ public class Student {
 	public void setBatchid(int batchid) {
 		this.batchid = batchid;
 	}
-	public String getStudent_username() {
-		return student_username;
+	public String getStudentUsername() {
+		return studentUsername;
 	}
-	public void setStudent_username(String student_username) {
-		this.student_username = student_username;
+	public void setStudentUsername(String studentUsername) {
+		this.studentUsername = studentUsername;
 	}
-	public String getStudent_password() {
-		return student_password;
+	public String getStudentPwd() {
+		return studentPwd;
 	}
-	public void setStudent_password(String student_password) {
-		this.student_password = student_password;
+	public void setStudentPwd(String studentPwd) {
+		this.studentPwd = studentPwd;
 	}
+	
 	
 }

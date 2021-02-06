@@ -40,4 +40,5 @@ public class StudentController {
 	public List<Student> FetchBasedOnBatch(@PathVariable("batch_id") Integer batchid){
 	    return stuservice.FetchBasedOnBatch(batchid);	
 	}
+	
 }

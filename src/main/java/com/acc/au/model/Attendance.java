@@ -8,6 +8,14 @@ public class Attendance {
     @Id
 	private int session_id;
 	private int student_id;
+	private String status;
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public int getSession_id() {
 		return session_id;
 	}

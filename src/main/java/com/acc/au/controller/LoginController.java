@@ -8,16 +8,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.acc.au.service.LoginService;
-
+ 
 @RestController
 @RequestMapping("/login")
 public class LoginController {
 
 	@Autowired
 	LoginService service;
-	@GetMapping("/{trainer_username}/{trainer_password}")
+	@GetMapping("trainer/{trainer_username}/{trainer_password}")
 	public String trainerlogin(@PathVariable("trainer_username") String trainerUser,@PathVariable("trainer_password") String trainerPwd) {
 		return service.trainerlogin(trainerUser,trainerPwd);
+		
+	}
+	@GetMapping("student/{student_username}/{student_password}")
+	public String studentlogin(@PathVariable("student_username") String studentUser,@PathVariable("student_password") String studentPwd) {
+		return service.studentlogin(studentUser,studentPwd);
 		
 	}
 }

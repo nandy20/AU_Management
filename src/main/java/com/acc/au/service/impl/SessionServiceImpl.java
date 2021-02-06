@@ -1,4 +1,5 @@
 package com.acc.au.service.impl;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,16 @@ public class SessionServiceImpl implements SessionService{
 	@Override
 	public Optional<Session> fetch(Integer id) {
 		return repo.findById(id);
+	}
+	@Override
+	public List <Session> fetchByBatch(Integer batchid) {
+		// TODO Auto-generated method stub
+		return repo.findByBatchid(batchid);
+	}
+	@Override
+	public List<Session> fetchByTrainer(Integer trainerid) {
+		// TODO Auto-generated method stub
+		return repo.findByTrainerid(trainerid);
 	}
 	
 }

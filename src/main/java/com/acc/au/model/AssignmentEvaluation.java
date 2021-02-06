@@ -8,6 +8,14 @@ public class AssignmentEvaluation {
      @Id
      private int assignment_id;
      private int student_id;
+     private int maximum_marks;
+     
+	public int getMaximum_marks() {
+		return maximum_marks;
+	}
+	public void setMaximum_marks(int maximum_marks) {
+		this.maximum_marks = maximum_marks;
+	}
 	public int getAssignment_id() {
 		return assignment_id;
 	}

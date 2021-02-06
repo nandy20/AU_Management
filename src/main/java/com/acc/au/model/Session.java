@@ -1,5 +1,6 @@
 package com.acc.au.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,16 +9,19 @@ public class Session {
     @Id
 	private int session_id;
     private String session_name;
-    private int trainer_id;
+    @Column(name="trainer_id")
+    private int trainerid;
     private String start_time;
     private String end_time;
     private String session_date;
-    private int batch_id;
-	public int getBatch_id() {
-		return batch_id;
+    @Column(name="batch_id")
+    private int batchid;
+	
+	public int getBatchid() {
+		return batchid;
 	}
-	public void setBatch_id(int batch_id) {
-		this.batch_id = batch_id;
+	public void setBatchid(int batchid) {
+		this.batchid = batchid;
 	}
 	public int getSession_id() {
 		return session_id;
@@ -31,11 +35,12 @@ public class Session {
 	public void setSession_name(String session_name) {
 		this.session_name = session_name;
 	}
-	public int getTrainer_id() {
-		return trainer_id;
+	
+	public int getTrainerid() {
+		return trainerid;
 	}
-	public void setTrainer_id(int trainer_id) {
-		this.trainer_id = trainer_id;
+	public void setTrainerid(int trainerid) {
+		this.trainerid = trainerid;
 	}
 	public String getStart_time() {
 		return start_time;
