@@ -73,6 +73,7 @@ public class SessionServiceImpl implements SessionService{
 	        message.setSubject("Welcome to AU2021"); 
 	        message.setText("You are added to the session");
 	        emailSender.send(message);
+	        
 		}
 		return "success";
 	}
