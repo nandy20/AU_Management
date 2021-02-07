@@ -8,7 +8,7 @@ public class Project {
     @Id
 	private int project_id;
 	private String project_name;
-	
+	private String description;
 	private int trainer_id;
 	private String deadline;
 	private int project_maximum_marks;
@@ -23,6 +23,13 @@ public class Project {
 	}
 	public void setProject_name(String project_name) {
 		this.project_name = project_name;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public int getProject_maximum_marks() {
 		return project_maximum_marks;

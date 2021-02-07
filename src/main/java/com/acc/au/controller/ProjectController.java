@@ -1,4 +1,5 @@
 package com.acc.au.controller;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class ProjectController {
 	@GetMapping("/{id}")
 	public Optional<Project> fetch(@PathVariable Integer id ) {
 		return service.fetch(id);
+		
+	}
+	@GetMapping("/fect")
+	public List<Project> fetchAll( ) {
+		return service.fetchAll();
 		
 	}
 	

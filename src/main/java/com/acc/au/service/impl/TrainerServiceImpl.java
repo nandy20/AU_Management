@@ -37,7 +37,7 @@ public class TrainerServiceImpl implements TrainerService{
 	@Override
 	public String save(Trainer obj) {
 		repo.save(obj);
-		try {
+		/*try {
 		LocalDateTime local 
         = LocalDateTime 
               .parse("2021-02-04T17:43:00"); 
@@ -58,7 +58,13 @@ public class TrainerServiceImpl implements TrainerService{
 		scheduler1.shutdown();
 		}catch (Exception e) {
 			e.printStackTrace();
-		}
+		}*/
+		SimpleMailMessage message = new SimpleMailMessage(); 
+        message.setFrom("nandhiniraja208@gmail.com");
+        message.setTo(obj.getTrainer_email()); 
+        message.setSubject("Welcome to AU2021"); 
+        message.setText("You are added to the Au2021 Trainers List");
+        emailSender.send(message);
 		
 		
 		return "success";

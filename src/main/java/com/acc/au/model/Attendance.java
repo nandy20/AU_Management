@@ -2,7 +2,8 @@ package com.acc.au.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-
+import javax.persistence.IdClass;
+@IdClass(AttendancePK.class)
 @Entity
 public class Attendance {
     @Id
@@ -10,6 +11,13 @@ public class Attendance {
 	private int student_id;
 	private String status;
 	
+	public Attendance() {
+		super();
+	}
+	public Attendance(Integer student_id,Integer session_id) {
+		this.student_id=student_id;
+		this.session_id=session_id;
+	}
 	public String getStatus() {
 		return status;
 	}

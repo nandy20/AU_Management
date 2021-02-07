@@ -1,4 +1,5 @@
 package com.acc.au.service.impl;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class ProjectServiceImpl implements ProjectService{
 	public Optional<Project> fetch(Integer id) {
 		// TODO Auto-generated method stub
 		return repo.findById(id);
+	}
+
+	@Override
+	public List<Project> fetchAll() {
+		// TODO Auto-generated method stub
+		return repo.findAll();
 	}
 
 }
