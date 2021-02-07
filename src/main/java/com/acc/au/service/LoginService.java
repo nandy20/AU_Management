@@ -1,7 +1,7 @@
 package com.acc.au.service;
 
-public interface LoginService {
+import com.acc.au.model.LoginDTO;
 
-	String trainerlogin(String trainerUsername,String trainerPwd);
-	String studentlogin(String studentUsername,String studentPwd);
+public interface LoginService {
+    String login(LoginDTO loginDTO);
 }

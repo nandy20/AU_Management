@@ -47,7 +47,8 @@ public class SessionServiceImpl implements SessionService{
 			 ZonedDateTime dateTime = ZonedDateTime.of(local,ZoneId.systemDefault());
 	            
 			JobDetail job1 = JobBuilder.newJob(EmailJob.class)
-					.withIdentity(UUID.randomUUID().toString(), "email-jobs").build();
+					.withIdentity(UUID.randomUUID().toString(), "email-jobs")
+					.build();
 
 			Trigger trigger1 = TriggerBuilder.newTrigger()
 					.withIdentity(job1.getKey().getName(),"email-triggers")
@@ -66,8 +67,7 @@ public class SessionServiceImpl implements SessionService{
 		
 		Optional<Trainer> t=trainSer.fetch(obj.getTrainerid());
 		if(t.isPresent()) {
-			
-			SimpleMailMessage message = new SimpleMailMessage(); 
+			SimpleMailMessage message = new SimpleMailMessage();
 	        message.setFrom("nandhiniraja208@gmail.com");
 	        message.setTo(t.get().getTrainer_email()); 
 	        message.setSubject("Welcome to AU2021"); 

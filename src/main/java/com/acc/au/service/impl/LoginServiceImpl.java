@@ -1,5 +1,6 @@
 package com.acc.au.service.impl;
 
+import com.acc.au.model.LoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,27 +12,15 @@ import com.acc.au.service.LoginService;
 @Service
 public class LoginServiceImpl implements LoginService {
 
-	@Autowired
-	TrainerRepo repo;
-	
-	@Autowired
-	StudentRepo sturepo;
 	@Override
-	public String trainerlogin(String trainerUsername, String trainerPwd) {
-		Trainer t=repo.findByTrainerUsername(trainerUsername);
-		if(t.getTrainerPwd().equals(trainerPwd)) {
-			return "success";
+	public String login(LoginDTO loginDTO) {
+		if(loginDTO.getUserName().equals("admin") && loginDTO.getPassword().equals("admin")) {
+			return "admin";
+		} else if(loginDTO.getUserName().equals("trainer") && loginDTO.getPassword().equals("trainer")) {
+			return "trainer";
+		} else if(loginDTO.getUserName().equals("student") && loginDTO.getPassword().equals("student")) {
+			return "student";
 		}
-		return "failer";
+		return "failure";
 	}
-	@Override
-	public String studentlogin(String studentUsername, String studentPwd) {
-		Student t=sturepo.findByStudentUsername(studentUsername);
-		if(t.getStudentPwd().equals(studentPwd)) {
-			return "success";
-		}
-		return "failer";
-	}
-
-	
 }
